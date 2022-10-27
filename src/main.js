@@ -26,18 +26,19 @@ document.getElementById("todos").addEventListener("click", function (e) {
   }
 });
 
-apiFetchTodos().then(
-  (data) =>
-    data &&
-    data.todoList.forEach((todo) => {
-      const ul = document.getElementById("todos");
-      const li = document.createElement("li");
-      li.setAttribute("id", todo.id);
-
-      li.appendChild(document.createTextNode(todo.text));
-      ul.appendChild(li);
-    })
-);
+// Fetch finnes ikke i Node JS 😔
+// apiFetchTodos().then(
+//   (data) =>
+//     data &&
+//     data.todoList.forEach((todo) => {
+//       const ul = document.getElementById("todos");
+//       const li = document.createElement("li");
+//       li.setAttribute("id", todo.id);
+//
+//       li.appendChild(document.createTextNode(todo.text));
+//       ul.appendChild(li);
+//     })
+// );
 
 // Helpers
 
@@ -57,7 +58,8 @@ function addTodo(todoInput) {
     li.appendChild(document.createTextNode(todoText));
     ul.appendChild(li);
 
-    apiAddTodo({ text: todoText, id: todoId });
+    // Fetch finnes ikke i Node JS 😔
+    // apiAddTodo({ text: todoText, id: todoId });
 
     document.getElementById("todo-input").value = ""; // Reset input field
     document.getElementById("todo-input").focus(); // Set focus on input field
